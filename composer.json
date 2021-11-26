@@ -29,5 +29,8 @@
                 "AntonioPrimera\\ActivityLog\\ActivityLogServiceProvider"
             ]
         }
-    }
+    },
+  "require": {
+    "ext-json": "*"
+  }
 }
