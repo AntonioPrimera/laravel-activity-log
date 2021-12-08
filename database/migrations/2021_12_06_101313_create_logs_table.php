@@ -21,7 +21,7 @@ class CreateLogsTable extends Migration
             $table->string('contents')->comment('information about the action');
             $table->string('level')->comment('e.g. C(Critical)/E(Error)/W(Warning)/I(Info)');
             $table->string('file')->nullable()->comment('The file in which the log was called.');
-            $table->json('data')->nullable()->comment("Data stored as serialized JSON");;
+            $table->json('data')->nullable()->comment("Data stored as serialized JSON");
 
             $table->timestamps();
         });
@@ -34,6 +34,6 @@ class CreateLogsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('logs');
+        Schema::connection('activity_log')->dropIfExists('logs');
     }
 }

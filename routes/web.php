@@ -11,5 +11,6 @@ use AntonioPrimera\ActivityLog\Http\Controllers\LogController;
 | Web Routes
 |--------------------------------------------------------------------------
 */
+
 //@add prefix from env
-Route::get('/log', [LogController::class, 'index'])->name('log.index');
+//Route::get('/log', [LogController::class, 'index'])->name('log.index');
