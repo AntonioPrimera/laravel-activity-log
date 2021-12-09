@@ -29,6 +29,23 @@ class ActivityLog
         ?array $data = []
     )
     {
+        $latestLog = Log::latest()->first();
+
+        if (
+            $latestLog
+            && $latestLog->system_uid === $systemUid
+            && $latestLog->process    === $process
+            && $latestLog->contents   === $contents
+            && $latestLog->level      === $level
+            && $latestLog->file       === $file
+        ) {
+            $latestLog->update([
+               'counter' => ++$latestLog->counter,
+            ]);
+
+            return $latestLog;
+        }
+
         return Log::create([
             'system_uid' => $systemUid,
             'process'    => $process,
@@ -36,6 +53,7 @@ class ActivityLog
             'level'      => $level,
             'file'       => $file,
             'data'       => json_encode($data),
+            'counter'    => 1,
         ]);
     }
 

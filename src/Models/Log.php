@@ -41,5 +41,6 @@ class Log extends Model
         'contents',
         'data',
         'level',
+        'counter',
     ];
 }

@@ -12,6 +12,10 @@
         td {
             max-width: 8rem;
         }
+
+        td > div {
+            max-height: 1.5rem;
+        }
     </style>
 </head>
 
@@ -46,6 +50,10 @@
                                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Data
                                     </th>
+
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Counter
+                                    </th>
                                 </tr>
                             </thead>
 
@@ -53,22 +61,26 @@
                                 @foreach($logs as $log)
                                 <tr class="bg-white">
                                     <td class="px-6 py-4 overflow-x-auto text-sm font-medium text-gray-900">
-                                        {{ $log->system_uid }}
+                                        <div>{{ $log->system_uid }}</div>
                                     </td>
                                     <td class="px-6 py-4 overflow-x-auto text-sm text-gray-500">
-                                        {{ $log->process }}
+                                        <div>{{ $log->process }}</div>
                                     </td>
                                     <td class="px-6 py-4 overflow-x-auto text-sm text-gray-500">
-                                        {{ $log->contents }}
+                                        <div>{{ $log->contents }}</div>
                                     </td>
                                     <td class="px-6 py-4 overflow-x-auto text-sm text-gray-500">
-                                        {{ $log->level }}
+                                        <div>{{ $log->level }}</div>
                                     </td>
                                     <td class="px-6 py-4 overflow-x-auto text-sm text-gray-500">
-                                        {{ $log->file }}
+                                        <div>{{ $log->file }}</div>
                                     </td>
                                     <td class="px-6 py-4 overflow-x-auto text-sm text-gray-500">
-                                        {{ $log->data }}
+                                        <div>{{ $log->data }}</div>
+                                    </td>
+
+                                    <td class="px-6 py-4 overflow-x-auto text-sm text-gray-500">
+                                        {{ $log->counter }}
                                     </td>
                                 </tr>
                                 @endforeach

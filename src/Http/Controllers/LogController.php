@@ -15,7 +15,7 @@ class LogController extends Controller
      */
     public function index(): View
     {
-        $logs = Log::get();
+        $logs = Log::latest()->get();
 
         return view('activity-log::index', compact('logs'));
     }
